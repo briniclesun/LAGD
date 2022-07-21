@@ -83,7 +83,7 @@ class LAGD(Optimizer):
                         val_avg_sq = state['val_avg_sq']
 
                 state['step'] += 1
-                #移动平均值初值为0，以下为不为0的部分所在比重，第一次为0.1=1-0.9，第二次为0.1*0.9+0.1=1-0.9^2
+               
                 bias_correction_m = 1 - b_m ** state['step']
                 bias_correction_n = 1 - b_n ** state['step']
                 if relative:
@@ -136,7 +136,7 @@ class LAGD(Optimizer):
 
                 p.addcdiv_(exp_avg, denom, value=-step_size)
 
-                #exp_avg带动量的梯度，denom梯度均值，step_size学习率步长
+     
 
 
 
